@@ -1,12 +1,19 @@
 import java.io.File;
 import java.util.*;
 
-public class Hangman {
+public class Runner {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String magicWord = "Hangman";
+        Random random = new Random();
+        //String magicWord = "Hangman";
         String input;
         boolean playng = true;
+
+        File file = new File("G:\\JAVA\\Hangman\\words");
+        List<Words> wordsList = HangmanUtils.readFileToWordsList(file);
+        String magicWord =  getRandomWord(wordsList);
+        System.out.println(magicWord);
+
 
         System.out.println("Wellcome!\nChoose an option:");
         System.out.println("=========================");
@@ -33,7 +40,7 @@ public class Hangman {
                         System.out.println(buildWord);
                         System.out.println("=========================");
                         if (buildWord.contains("_")) {
-                            HangmanGraph graphh = new HangmanGraph();
+                            HangmanGraphic graphh = new HangmanGraphic();
                             counter--;
                             System.out.println("You have " + counter + " lives");
                             graphh.lifes(counter);
@@ -73,6 +80,7 @@ public class Hangman {
                     } else {
                         System.out.println("You lost!!!");
                         System.out.println("Goodbye!!!");
+                        System.out.println("The correct word was: " + magicWord);
                     }
                     break;
                 case "0":
@@ -105,4 +113,10 @@ public class Hangman {
         }
         return wordTemp;
     }
+
+    public static String getRandomWord(List<Words> words) {
+        Words word = words.get(new Random().nextInt(words.size()));
+        return  word.getWord();
+    }
+
 }

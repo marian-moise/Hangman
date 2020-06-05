@@ -1,4 +1,4 @@
-public class HangmanGraph {
+public class HangmanGraphic {
     public void lifes(int counter) {
         switch (counter) {
             case 9 :
