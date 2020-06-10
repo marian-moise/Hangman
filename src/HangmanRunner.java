@@ -41,6 +41,9 @@ public class HangmanRunner {
                         String input2 = scanner.next();
                         for (int i = 0; i < magicWord.length(); i++) {
                             if (input2.charAt(0) == magicWord.charAt(i)) {
+                                if (i == 0) {
+                                    counter = counter + 1 - 1;
+                                }
                                 hideWord.replace(i, i + 1, String.valueOf(input2.charAt(0)));
                                 counter++;
                             }
@@ -55,6 +58,17 @@ public class HangmanRunner {
                         System.out.println("You have " + counter + " lives");
                         j++;
                     }
+                    System.out.println("===GAME OVER!!!=== ");
+                    System.out.println("      ______   ");
+                    System.out.println("     |      |  ");
+                    System.out.println("     |      |  ");
+                    System.out.println("     |     ( ) / ");
+                    System.out.println("     |   / | | ");
+                    System.out.println("     |    /   /  ");
+                    System.out.println("     |         ");
+                    System.out.println("     |         ");
+                    System.out.println("_____|_________");
+                    playng = false;
                     break;
                 case "2":
                     System.out.println("Type the word!");
