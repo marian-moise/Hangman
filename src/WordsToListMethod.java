@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HangmanUtils {
+public class WordsToListMethod {
 
     public static List<Words> readFileToWordsList (File file) {
         List<Words> listWords = new ArrayList<>();
